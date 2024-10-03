@@ -1,0 +1,4 @@
+# Игнорирование служебных файлов Visual Studio
+.vs/
+*.vsidx
+*.vscode/
