@@ -91,32 +91,19 @@ namespace CityEvents
             Console.WriteLine();
             Console.ReadKey();
         }
-
         static void SelectAllPlaces(EventContext db)
         {
-            var places = from p in db.Places
-                         select new
-                         {
-                             Место = p.PlaceName,
-                             Геолокация = p.Geolocation
-                         };
-
-            string comment = "1. Все места:\r\n";
-            Print(comment, places.ToList());
+            Print("1. Все места:\r\n", db.Places
+                .Select(p => new { Место = p.PlaceName, Геолокация = p.Geolocation })
+                .ToList());
         }
 
         static void SelectPlacesWithFilter(EventContext db)
         {
-            var filteredPlaces = from p in db.Places
-                                 where p.PlaceName.Contains("ab")
-                                 select new
-                                 {
-                                     Место = p.PlaceName,
-                                     Геолокация = p.Geolocation
-                                 };
-
-            string comment = "2. Места, содержащие буквы 'ab':\r\n";
-            Print(comment, filteredPlaces.ToList());
+            Print("2. Места, содержащие буквы 'ab':\r\n", db.Places
+                .Where(p => p.PlaceName.Contains("ab"))
+                .Select(p => new { Место = p.PlaceName, Геолокация = p.Geolocation })
+                .ToList());
         }
 
         static void GroupByEvents(EventContext db)
@@ -140,7 +127,7 @@ namespace CityEvents
         {
             var filteredData = db.Events
                 .Include(e => e.Place)
-                .Where(e => e.Place.PlaceName.Contains("ab") && e.TicketPrice > 1000)
+                .Where(e => e.Place.PlaceName.Contains("ab") && e.TicketPrice > 1080)
                 .Select(e => new { e.EventName, e.Place.PlaceName, e.TicketPrice })
                 .ToList();
             Print("5. Данные из таблиц Events и Places с фильтром:", filteredData);

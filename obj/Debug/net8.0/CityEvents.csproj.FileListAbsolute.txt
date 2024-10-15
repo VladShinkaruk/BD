@@ -134,3 +134,4 @@ D:\1LABS\BD\Lab_2\CityEvents\obj\Debug\net8.0\refint\CityEvents.dll
 D:\1LABS\BD\Lab_2\CityEvents\obj\Debug\net8.0\CityEvents.pdb
 D:\1LABS\BD\Lab_2\CityEvents\obj\Debug\net8.0\CityEvents.genruntimeconfig.cache
 D:\1LABS\BD\Lab_2\CityEvents\obj\Debug\net8.0\ref\CityEvents.dll
+D:\1LABS\BD\Lab_2\CityEvents\obj\Debug\net8.0\CityEvents.sourcelink.json

@@ -24,5 +24,4 @@ namespace CityEvents.Models
             TicketOrders = new List<TicketOrder>();
         }
     }
-
 }
